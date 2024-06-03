@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'safe_browsing_url' => 'https://safebrowsing.googleapis.com/v4/',
+        'api_key' => env('GOOGLE_API_KEY')
+    ]
+
 ];
