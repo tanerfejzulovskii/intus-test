@@ -7,6 +7,9 @@
     <div v-if="shortUrl">
       Short URL: <a :href="shortUrl" target="_blank">{{ shortUrl }}</a>
     </div>
+    <div v-if="unsafeUrl">
+      {{ unsafeUrl }}
+    </div>
   </div>
 </template>
 
@@ -18,6 +21,7 @@ export default {
     return {
       url: "",
       shortUrl: "",
+      unsafeUrl: "",
     };
   },
   methods: {
@@ -27,9 +31,11 @@ export default {
           url: this.url,
         });
 
+        this.unsafeUrl = "";
         this.shortUrl = response.data.shortUrl;
       } catch (error) {
-        console.error(error);
+        this.shortUrl = "";
+        this.unsafeUrl = error.response.data.error;
       }
     },
   },
