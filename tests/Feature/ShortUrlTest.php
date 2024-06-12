@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Url;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Response;
+use GuzzleHttp\Psr7\Response;
 
 class ShortUrlTest extends TestCase
 {
